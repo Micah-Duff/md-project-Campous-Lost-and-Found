@@ -15,7 +15,7 @@ $items = getUnclaimedItems($db);
 <?php else: ?>
 <ul>
 <?php foreach ($items as $item): ?>
-    <li><a href="item.php?id=<?= (int) $item['item_id'] ?>"><?= htmlspecialchars($item['item_name']) ?></a>
+    <li><a href="item.php?id=<?= getItem($db,(int) $item['item_id']) ?>"><?= htmlspecialchars($item['item_name']) ?></a>
         — <?= htmlspecialchars($item['location_found']) ?></li>
 <?php endforeach; ?>
 </ul>

@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <h1>Found item</h1>
 <p><a href="index.php">Back to unclaimed items</a></p>
 <h2><?= htmlspecialchars($item['item_name']) ?></h2>
-<p><?= htmlspecialchars($item['description']) ?></p>
+<p><?=htmlspecialchars($item['description']) ?></p>
 <p>Found at: <?= htmlspecialchars($item['location_found']) ?></p>
 <?php if ((int) $item['claimed'] === 0): ?>
 <form action="item.php" method="post">

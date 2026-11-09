@@ -10,8 +10,10 @@ function getUnclaimedItems(PDO $db): array
 // Task 1: Retrieve one item using a prepared SELECT and the supplied ID.
 function getItem(PDO $db, int $id)
 {
-    // Prepare the statement, supply the ID, and return the fetched row.
-    return false; // Replace this temporary return with your fetched result.
+    $sql = 'SELECT "$id", item_name, description, location_found, claimed FROM found_items
+            WHERE claimed = 0 ORDER BY item_name, item_id';
+    $statement = $db->query($sql);
+    return $statement->fetch(); // Replace this temporary return with your fetched result.
 }
 
 // Task 2: Mark only the selected item claimed using a prepared UPDATE.
