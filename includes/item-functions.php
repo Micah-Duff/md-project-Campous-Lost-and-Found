@@ -29,5 +29,12 @@ function markClaimed(PDO $db, int $id): void
 // Task 3: Add the supplied object using a prepared INSERT.
 function addItem(PDO $db, FoundItem $item): void
 {
-    // Insert its three properties. Every new item starts unclaimed.
+    $sql = 'INSERT INTO found_items (item_name, description, location_found, claimed)
+            VALUES (:name, :description, :location, 0)';
+    $statement = $db->prepare($sql);
+    $statement->execute([
+        ':name'        => $item->itemName,
+        ':description' => $item->description,
+        ':location'    => $item->locationFound,
+    ]);
 }
