@@ -21,7 +21,9 @@ function getItem(PDO $db, int $id)
 // Task 2: Mark only the selected item claimed using a prepared UPDATE.
 function markClaimed(PDO $db, int $id): void
 {
-    // Set claimed to 1. Use the ID to target the correct row.
+    $sql = 'UPDATE found_items SET claimed = 1 WHERE item_id = :id';
+    $statement = $db->prepare($sql);
+    $statement->execute([':id' => $id]);
 }
 
 // Task 3: Add the supplied object using a prepared INSERT.

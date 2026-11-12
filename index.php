@@ -1,6 +1,7 @@
 <?php
 require __DIR__ . '/includes/database.php';
 require_once __DIR__ . '/includes/item-functions.php';
+require_once __DIR__ . '/includes/bootstrap.php';
 $items = getUnclaimedItems($db);
 ?>
 <!doctype html>
